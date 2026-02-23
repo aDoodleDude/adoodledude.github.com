@@ -1,0 +1,237 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #111;
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+  overflow-x: hidden;
+}
+
+/* =====================
+   NAV — RPG menu style
+===================== */
+#main-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  background: rgba(10, 10, 15, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid #2a2a3a;
+  /* RPG panel feel */
+  box-shadow: 0 2px 0 #1a1a2a, 0 4px 0 #0a0a0f;
+}
+
+.nav-logo {
+  font-family: 'Silkscreen', monospace;
+  font-size: 0.85rem;
+  color: #e8c55a;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+
+.nav-logo:hover { color: #fff; }
+
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Silkscreen', monospace;
+  font-size: 0.65rem;
+  color: #aaa;
+  text-decoration: none;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  transition: all 0.15s;
+}
+
+.nav-links a:hover {
+  color: #fff;
+  border-color: #3a3a4a;
+  background: #1a1a2a;
+}
+
+/* the play button stands out */
+.nav-dungeon {
+  color: #e8c55a !important;
+  border-color: #5a4a1a !important;
+  background: #1a1500 !important;
+}
+
+.nav-dungeon:hover {
+  background: #2a2500 !important;
+  border-color: #e8c55a !important;
+}
+
+/* mobile toggle — hidden on desktop */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid #333;
+  color: #aaa;
+  font-family: 'Silkscreen', monospace;
+  font-size: 0.65rem;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+/* push page content below fixed nav */
+body > nav + header { padding-top: 60px; }
+
+/* =====================
+   MOBILE NAV
+===================== */
+@media (max-width: 700px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    flex-direction: column;
+    background: rgba(10,10,15,0.98);
+    border-bottom: 2px solid #2a2a3a;
+    padding: 0.5rem 1rem;
+    gap: 0.25rem;
+  }
+
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: block; }
+}
+
+/* =====================
+   HEADER — dungeon game screenshot
+===================== */
+#header {
+  width: 100%;
+  height: 100vh;
+  background: #1a1a2e; /* placeholder — replace with ur dungeon screenshot */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 3rem;
+}
+
+.header-title {
+  font-size: 3rem;
+  text-align: center;
+}
+
+/* =====================
+   STREET WRAPPER
+===================== */
+#street {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#street::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  background: #1e1e1e;
+  z-index: 0;
+}
+
+/* =====================
+   LANTERN COLUMNS
+===================== */
+.lantern-left,
+.lantern-right {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 200px;
+  padding-top: 100px;
+  z-index: 1;
+}
+
+.lantern-left  { left: 0; }
+.lantern-right { right: 0; }
+
+.lantern {
+  width: 40px;
+  height: 60px;
+  background: #ffcc55; /* placeholder — swap with ur pixel lantern sprite */
+  opacity: 0.8;
+}
+
+/* =====================
+   SECTIONS
+===================== */
+.section {
+  position: relative;
+  z-index: 2;
+  width: 55%;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.section h2 { font-size: 2rem; }
+
+.section p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #aaa;
+  max-width: 500px;
+}
+
+/* biome tints — replace with ur actual pixel art bg images */
+#about   { background: rgba( 80, 120,  60, 0.15); }
+#games   { background: rgba( 30,  20,  50, 0.15); }
+#links   { background: rgba( 60,  30,  80, 0.15); }
+#doodles { background: rgba( 90,  50,  20, 0.15); }
+
+/* biome dividers */
+.biome-divider {
+  width: 60%;
+  height: 80px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+/* =====================
+   FOOTER
+===================== */
+#footer {
+  position: relative;
+  z-index: 2;
+  width: 55%;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: #555;
+  font-size: 0.8rem;
+  border-top: 1px solid #333;
+}

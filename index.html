@@ -99,8 +99,42 @@
       <p>[brewing stand biome background goes here]</p>
       <p>Dummy text — got a doodle, a message, or a game idea? Send it my way!</p>
       <!-- form will go here -->
-      <form action="#" method="POST">
-        <p>[form placeholder]</p>
+      <form id="doodle-form" action="https://formspree.io/f/xnjbopqr" method="POST">
+        <!-- NAME -->
+        <div class="form-group">
+          <label for="f-name">▸ name / alias: </label>
+          <input type="text" id="f-name" name="name" placeholder="coolperson123" autocomplete="off">
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group">
+          <label for="f-email">▸ email: <span class="optional">(optional — only if u want a reply)</span></label>
+          <input type="email" id="f-email" name="email" placeholder="ur@email.com" autocomplete="off">
+        </div>
+
+        <!-- MESSAGE -->
+        <div class="form-group">
+          <label for="f-msg">▸ message: </label>
+          <textarea id="f-msg" name="message" placeholder="say anything!"></textarea>
+        </div>
+
+        <!-- DOODLE CANVAS -->
+        <div class="form-group">
+          <label>▸ draw a lil doodle!: <span class="optional">(optional)</span></label>
+          <div id="canvas-wrap">
+            <canvas id="doodle-canvas" width="320" height="200"></canvas>
+            <div id="canvas-tools">
+              <input type="color" id="brush-color" value="#5ef0d8" title="brush color">
+              <input type="range" id="brush-size" min="2" max="20" value="4" title="brush size">
+              <button type="button" id="clear-canvas">clear</button>
+            </div>
+          </div>
+          <!-- hidden field stores the drawing as base64 -->
+          <input type="hidden" id="doodle-data" name="doodle">
+        </div>
+
+        <button type="submit" class="submit-btn">send it! →</button>
+
       </form>
     </section>
 
@@ -116,7 +150,65 @@
     document.querySelector('.nav-toggle').addEventListener('click', () => {
       document.querySelector('.nav-links').classList.toggle('open');
     });
-  </script>
 
+    // =====================
+    // DOODLE CANVAS
+    // =====================
+    const canvas  = document.getElementById('doodle-canvas');
+    const ctx     = canvas.getContext('2d');
+    const colorPicker = document.getElementById('brush-color');
+    const sizePicker  = document.getElementById('brush-size');
+    let drawing = false;
+
+    // fill background so it doesn't send transparent
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    function getPos(e) {
+      const rect = canvas.getBoundingClientRect();
+      const src  = e.touches ? e.touches[0] : e;
+      return { x: src.clientX - rect.left, y: src.clientY - rect.top };
+    }
+
+    function startDraw(e) {
+      drawing = true;
+      const pos = getPos(e);
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+      e.preventDefault();
+    }
+
+    function draw(e) {
+      if (!drawing) return;
+      const pos = getPos(e);
+      ctx.lineWidth   = sizePicker.value;
+      ctx.lineCap     = 'round';
+      ctx.strokeStyle = colorPicker.value;
+      ctx.lineTo(pos.x, pos.y);
+      ctx.stroke();
+      e.preventDefault();
+    }
+
+    function stopDraw() { drawing = false; }
+
+    canvas.addEventListener('mousedown',  startDraw);
+    canvas.addEventListener('mousemove',  draw);
+    canvas.addEventListener('mouseup',    stopDraw);
+    canvas.addEventListener('mouseleave', stopDraw);
+    canvas.addEventListener('touchstart', startDraw, { passive: false });
+    canvas.addEventListener('touchmove',  draw,      { passive: false });
+    canvas.addEventListener('touchend',   stopDraw);
+
+    document.getElementById('clear-canvas').addEventListener('click', () => {
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    });
+
+    // before submit — save canvas drawing into hidden field
+    document.getElementById('doodle-form').addEventListener('submit', () => {
+      document.getElementById('doodle-data').value = canvas.toDataURL();
+    });
+  </script>
+  
 </body>
 </html>

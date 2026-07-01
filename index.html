@@ -1,214 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>adoodledude</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adoodledude</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav id="main-nav">
-    <a href="index.html" class="nav-logo">⚔️ adoodledude</a>
-    <ul class="nav-links">
-      <li><a href="#about">🌿 village</a></li>
-      <li><a href="#games">🏰 castle</a></li>
-      <li><a href="#links">🧙 witch</a></li>
-      <li><a href="#doodles">🧪 brewery</a></li>
-      <li><a href="dungeon.html" class="nav-dungeon">⚔️ play</a></li>
-    </ul>
-    <button class="nav-toggle" aria-label="toggle menu">▼ menu</button>
-  </nav>
+    <!-- Fixed System Navbar Layout Component -->
+    <nav class="sys-navbar">
+        <div class="nav-left">
+            <span class="nav-brand">🌐 adoodledude.sys</span>
+            <ul class="nav-links">
+                <li>Identity</a></li>
+		<li><a href="#links">Links</a></li>
+                <li><a href="#rival">Rival_Scanner</a></li>
+                <li><a href="#projects">Projects</a></li>
 
-  <!-- HEADER — dungeon screenshot as bg image -->
-  <header id="header">
-    <hgroup class="header-title">
-      <p>[dungeon screenshot goes here as background]</p>
-      <h1>adoodledude</h1>
-      <p>java games & cool stuff</p>
-    </hgroup>
-  </header>
-
-  <!-- MAIN — the street + all sections -->
-  <main id="street">
-
-    <!-- LANTERNS -->
-    <aside class="lantern-left" aria-hidden="true">
-      <div class="lantern"></div>
-      <div class="lantern"></div>
-      <div class="lantern"></div>
-      <div class="lantern"></div>
-      <div class="lantern"></div>
-      <div class="lantern"></div>
-      <div class="lantern"></div>
-      <div class="lantern"></div>
-    </aside>
-
-    <aside class="lantern-right" aria-hidden="true">
-      <div class="lantern"></div>
-      <div class="lantern"></div>
-      <div class="lantern"></div>
-      <div class="lantern"></div>
-      <div class="lantern"></div>
-      <div class="lantern"></div>
-      <div class="lantern"></div>
-      <div class="lantern"></div>
-    </aside>
-
-    <!-- SECTION 1 — ABOUT ME (village biome) -->
-    <section id="about" class="section">
-      <h2>🌿 About Me</h2>
-      <p>[village biome background goes here]</p>
-      <p>Dummy text — hi I'm adoodledude, a middle schooler who makes Java games and pixel art.</p>
-      <p>More dummy text about me here. Interests, how I got into coding, etc.</p>
-    </section>
-
-    <hr class="biome-divider" aria-hidden="true">
-
-    <!-- SECTION 2 — MY GAMES (dark castle biome) -->
-    <section id="games" class="section">
-      <h2>🏰 My Games</h2>
-      <p>[dark castle biome background goes here]</p>
-      <p>Dummy text — here are the games I've made.</p>
-      <!-- game cards will go here -->
-      <article>[game card placeholder]</article>
-      <article>[game card placeholder]</article>
-      <article>[game card placeholder]</article>
-    </section>
-
-    <hr class="biome-divider" aria-hidden="true">
-
-    <!-- SECTION 3 — LINKS / CODE (witch area biome) -->
-    <section id="links" class="section">
-      <h2>🧙 My Code</h2>
-      <p>[witch area biome background goes here]</p>
-      <p>Dummy text — links to my GitHub and other places where you can find my code.</p>
-      <nav aria-label="Code links">
-        <a href="#">[link placeholder]</a>
-        <a href="#">[link placeholder]</a>
-      </nav>
-    </section>
-
-    <hr class="biome-divider" aria-hidden="true">
-
-    <!-- SECTION 4 — SUBMIT UR DOODLES (brewing stand biome) -->
-    <section id="doodles" class="section">
-      <h2>🧪 Submit Ur Doodles!</h2>
-      <p>[brewing stand biome background goes here]</p>
-      <p>Dummy text — got a doodle, a message, or a game idea? Send it my way!</p>
-      <!-- form will go here -->
-      <form id="doodle-form" action="https://formspree.io/f/xnjbopqr" method="POST">
-        <!-- NAME -->
-        <div class="form-group">
-          <label for="f-name">▸ name / alias: </label>
-          <input type="text" id="f-name" name="name" placeholder="coolperson123" autocomplete="off">
+            </ul>
         </div>
-
-        <!-- EMAIL -->
-        <div class="form-group">
-          <label for="f-email">▸ email: <span class="optional">(optional — only if u want a reply)</span></label>
-          <input type="email" id="f-email" name="email" placeholder="ur@email.com" autocomplete="off">
+        <div class="nav-right">
+            <span class="nav-status">📶 Connected</span>
+            <span id="nav-clock" class="nav-clock">00:00:00 AM</span>
         </div>
+    </nav>
 
-        <!-- MESSAGE -->
-        <div class="form-group">
-          <label for="f-msg">▸ message: </label>
-          <textarea id="f-msg" name="message" placeholder="say anything!"></textarea>
-        </div>
+    <!-- Main Desktop Workspace grid -->
+    <main class="desktop-environment">
+        
+        <!-- LBOOP Floating Windows -->
+        <window-panel>
+            <h1 class="logo">adoodledude</h1>
+            <p class="bio">
+                Hi, I'm a middle schooler who <span class="strike">has life completely figured out</span> doesn't know what he's doing.
+            </p>
+        </window-panel>
 
-        <!-- DOODLE CANVAS -->
-        <div class="form-group">
-          <label>▸ draw a lil doodle!: <span class="optional">(optional)</span></label>
-          <div id="canvas-wrap">
-            <canvas id="doodle-canvas" width="320" height="200"></canvas>
-            <div id="canvas-tools">
-              <input type="color" id="brush-color" value="#5ef0d8" title="brush color">
-              <input type="range" id="brush-size" min="2" max="20" value="4" title="brush size">
-              <button type="button" id="clear-canvas">clear</button>
+	<window-panel id="links" title="links.sys">
+	    <h3 style="margin-top:0; color:#b1bae6;">↔ QUICK LINKS</h3>
+	    <p>
+		<a href="https://adoodledude.itch.io" style="color: rgb(9, 175, 255)">Itch.io</a> games and stuff <br>
+		<a href="https://adoodledude.medium.com" style="color: rgb(9, 175, 255)">Medium.com</a> blog <br>
+		<a href="https://youtube.com/@adumbdoodle" style="color: rgb(9, 175, 255)">Youtube</a> yt channel (pls sub) 
+	    </p>
+	</window-panel>
+
+        <window-panel id="rival" title="desk_sniffer.sh">
+            <h3 style="margin-top:0; color:#b1bae6;">🔍 WANTED: The Desk Arch Installer</h3>
+            <p>To whoever is scribbling broken Arch guides on the desks:</p>
+            <p>Your syntax is terrible, <highlight-text>but you're a worthy opponent.</highlight-text></p>
+            <p>If you want to actually boot into a desktop environment without bricking your system, let's talk. - adoodledude</p>
+        </window-panel>
+
+        <window-panel id="projects" title="projects.log">
+            <div class="projects-grid">
+                <project-card title="OverTheWire: Bandit" type="Cybersecurity" status="Conquered 🏆"></project-card>
+                <project-card title="Arch Linux Install" type="SysAdmin" status="Bricked then Fixed 🏔️"></project-card>
+                <project-card title="Raylib Game Project" type="Wasm / C++" status="In Progress ⚡"></project-card>
             </div>
-          </div>
-          <!-- hidden field stores the drawing as base64 -->
-          <input type="hidden" id="doodle-data" name="doodle">
-        </div>
+        </window-panel>
 
-        <button type="submit" class="submit-btn">send it! →</button>
+    </main>
 
-      </form>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer id="footer">
-    <p>© adoodledude — built with ☕ java & pixel art</p>
-  </footer>
-
-  <script>
-    // mobile nav toggle
-    document.querySelector('.nav-toggle').addEventListener('click', () => {
-      document.querySelector('.nav-links').classList.toggle('open');
-    });
-
-    // =====================
-    // DOODLE CANVAS
-    // =====================
-    const canvas  = document.getElementById('doodle-canvas');
-    const ctx     = canvas.getContext('2d');
-    const colorPicker = document.getElementById('brush-color');
-    const sizePicker  = document.getElementById('brush-size');
-    let drawing = false;
-
-    // fill background so it doesn't send transparent
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    function getPos(e) {
-      const rect = canvas.getBoundingClientRect();
-      const src  = e.touches ? e.touches[0] : e;
-      return { x: src.clientX - rect.left, y: src.clientY - rect.top };
-    }
-
-    function startDraw(e) {
-      drawing = true;
-      const pos = getPos(e);
-      ctx.beginPath();
-      ctx.moveTo(pos.x, pos.y);
-      e.preventDefault();
-    }
-
-    function draw(e) {
-      if (!drawing) return;
-      const pos = getPos(e);
-      ctx.lineWidth   = sizePicker.value;
-      ctx.lineCap     = 'round';
-      ctx.strokeStyle = colorPicker.value;
-      ctx.lineTo(pos.x, pos.y);
-      ctx.stroke();
-      e.preventDefault();
-    }
-
-    function stopDraw() { drawing = false; }
-
-    canvas.addEventListener('mousedown',  startDraw);
-    canvas.addEventListener('mousemove',  draw);
-    canvas.addEventListener('mouseup',    stopDraw);
-    canvas.addEventListener('mouseleave', stopDraw);
-    canvas.addEventListener('touchstart', startDraw, { passive: false });
-    canvas.addEventListener('touchmove',  draw,      { passive: false });
-    canvas.addEventListener('touchend',   stopDraw);
-
-    document.getElementById('clear-canvas').addEventListener('click', () => {
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-    });
-
-    // before submit — save canvas drawing into hidden field
-    document.getElementById('doodle-form').addEventListener('submit', () => {
-      document.getElementById('doodle-data').value = canvas.toDataURL();
-    });
-  </script>
-  
+    <!-- The LBOOP Engine -->
+    <script src="components.js"></script>
 </body>
 </html>

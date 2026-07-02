@@ -46,24 +46,40 @@
 	    </p>
 	</window-panel>
 
-        <window-panel id="rival" title="desk_sniffer.sh">
-            <h3 style="margin-top:0; color:#b1bae6;">🔍 WANTED: The Desk Arch Installer</h3>
-            <p>To whoever is scribbling broken Arch guides on the desks:</p>
-            <p>Your syntax is terrible, <highlight-text>but you're a worthy opponent.</highlight-text></p>
-            <p>If you want to actually boot into a desktop environment without bricking your system, let's talk. - adoodledude</p>
-        </window-panel>
-
-        <window-panel id="projects" title="projects.log">
+		<window-panel id="projects" title="projects.log">
             <div class="projects-grid">
                 <project-card title="OverTheWire: Bandit" type="Cybersecurity" status="Conquered 🏆"></project-card>
                 <project-card title="Arch Linux Install" type="SysAdmin" status="Bricked then Fixed 🏔️"></project-card>
                 <project-card title="Raylib Game Project" type="Wasm / C++" status="In Progress ⚡"></project-card>
             </div>
         </window-panel>
+		
+        <window-panel id="rival" title="desk_sniffer.sh">
+            <h3 style="margin-top:0; color:#b1bae6;">🔍 WANTED: The Desk Arch Installer</h3>
+            <p>To whoever is scribbling broken Arch guides on the desks:</p>
+            <p>Your syntax is terrible, <highlight-text>but you're a worthy opponent.</highlight-text></p>
+            <p>If you want to actually boot into a desktop environment without bricking your system, let's talk. - adoodledude</p>
+        </window-panel>
+		
+		<window-panel id="msg" title="message.bin">
+			<p>Send a message or suggestion (bcz im loneley)</p>
+			<form>
+				<label>
+					Your Name:
+					<input type="text" id="name">
+				</label>
+				<label>
+					Your Message:
+					<textarea id="message"></textarea>
+				</label>
+				
+				<button></button>
+			</form>
+		</window-panel>
 
     </main>
 
-    <!-- The LBOOP Engine -->
+	<!-- JS here -->
     <script src="components.js"></script>
 </body>
 </html>

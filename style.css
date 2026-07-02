@@ -83,8 +83,9 @@ body {
 .project-info span { font-size: 0.7rem; color: #4b5563; text-transform: uppercase; }
 .project-status { font-size: 0.85rem; color: #cbd5e1; }
 
-button {
+button, textarea, input {
     background-color: rgb(49, 49, 49);
     color: rgb(228, 228, 228);
-    border-style: rgb(128, 128, 128)
+    border: rgb(128, 128, 128) solid;
+    border-radius: 8px;
 }
